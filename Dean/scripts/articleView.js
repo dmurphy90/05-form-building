@@ -77,7 +77,7 @@ articleView.setTeasers = () => {
 // PUT YOUR RESPONSE HERE
 articleView.initNewArticlePage = () => {
   // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
-
+  //CHECK SALMON COOKIES
 
   // TODO: The new articles we create will be copy/pasted into our source data file.
   // Set up this "export" functionality. We can hide it for now, and show it once we have data to export.
@@ -87,6 +87,7 @@ articleView.initNewArticlePage = () => {
   });
 
   // TODO: Add an event handler to update the preview and the export field if any inputs change.
+  //use on change event handler on the form itself, use some sort of delegation
 
 };
 
@@ -96,21 +97,32 @@ articleView.create = () => {
 
 
   // TODO: Instantiate an article based on what's in the form fields:
-
+  let articleDraft = new Article({
+    title: $('#article-title').val(),
+    category: $('article-category').val(),
+    author: $('#article-author').val(),
+    authorUrl: $('#article-authorurl').val(),
+    //use ternary and reference line 18 of article.js for published on
+  })
 
   // TODO: Use our interface to the Handblebars template to put this new article into the DOM:
+  //probably use tohtml here
 
 
-  // TODO: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
-  $('pre code').each();
+  // DONE: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
+  $('pre code').each(function(i, block){
+    hljs.highlightBlock(block);
+  });
 
   // TODO: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
+  //need to use stringify here, not sure on what, won't need to parse though
 
 };
 
 // COMMENT: Where is this function called? Why?
 // PUT YOUR RESPONSE HERE
 articleView.initIndexPage = () => {
+  articles.forEach(article => $('#articles').append(article.toHtml()))
   articleView.populateFilters();
   articleView.handleCategoryFilter();
   articleView.handleAuthorFilter();
