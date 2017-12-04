@@ -1,6 +1,8 @@
 'use strict';
 
 var rawData = [
+  {"author":"Dean Murphy","authorUrl":"www.google.com","title":"Dean","category":"tech","body":"is almost done hopefully!            ","publishedOn":"2017-12-04T00:58:49.281Z","daysAgo":0,"publishStatus":"published 0 days ago"},
+
   {
     title:       'Bacon Ipsum',
     category:    'food',
