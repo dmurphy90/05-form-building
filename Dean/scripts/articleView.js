@@ -74,7 +74,7 @@ articleView.setTeasers = () => {
 };
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// On the html file so that all of this executed on page load
 articleView.initNewArticlePage = () => {
   // DONE: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
   //CHECK SALMON COOKIES
@@ -120,7 +120,7 @@ articleView.create = () => {
     hljs.highlightBlock(block);
   });
 
-  // TODO: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
+  // DONE: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
   //need to use stringify here, not sure on what, won't need to parse though
   let newPost = JSON.stringify(articleDraft);
   $('#article-json').val(newPost);
